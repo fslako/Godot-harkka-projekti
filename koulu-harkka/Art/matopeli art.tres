@@ -1,0 +1,44 @@
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://ti7t4qsuy7pn"]
+
+[ext_resource type="Texture2D" uid="uid://by73mwdd2uhmp" path="res://Art/Environment.png" id="1_ncrac"]
+[ext_resource type="Texture2D" uid="uid://d1x3utn10ffy7" path="res://Art/Grid.png" id="2_mymna"]
+[ext_resource type="Texture2D" uid="uid://cixjcq5t7tmtu" path="res://Art/Snake.png" id="3_xf3cr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rmq1o"]
+texture = ExtResource("1_ncrac")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+0:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pg5il"]
+texture = ExtResource("2_mymna")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_up047"]
+texture = ExtResource("3_xf3cr")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_rmq1o")
+sources/1 = SubResource("TileSetAtlasSource_pg5il")
+sources/2 = SubResource("TileSetAtlasSource_up047")

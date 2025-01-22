@@ -13,10 +13,13 @@ public partial class NewScript : Node
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		GD.Print(a);
-
+		if (a < 1000)
+		{
+			GD.Print(a);
         	temp = a;
       	    a = b;
        	   	b = temp + b;
+		}
+
 	}
 }

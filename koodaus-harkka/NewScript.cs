@@ -3,7 +3,7 @@ using System;
 
 public partial class NewScript : Node
 {
-    int a = 0, b = 1, temp;
+    int a = 0, b = 1, temp, c = 1;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -15,10 +15,11 @@ public partial class NewScript : Node
 	{
 		if (a < 1000)
 		{
-			GD.Print(a);
+			GD.Print($"Frame {c}: {a}");
         	temp = a;
       	    a = b;
        	   	b = temp + b;
+			c += 1;
 		}
 
 	}

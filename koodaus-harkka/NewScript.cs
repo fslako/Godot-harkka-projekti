@@ -19,7 +19,7 @@ public partial class NewScript : Node
         	temp = a;
       	    a = b;
        	   	b = temp + b;
-			c += 1;
+			c++;
 		}
 
 	}

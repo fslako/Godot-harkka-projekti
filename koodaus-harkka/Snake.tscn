@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://g33c5ahejkce"]
+
+[ext_resource type="Script" path="res://Snake.cs" id="1_lfb58"]
+[ext_resource type="Texture2D" uid="uid://3w84alt6xjcn" path="res://icon.svg" id="2_23oab"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_lfb58")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(74, 82)
+texture = ExtResource("2_23oab")
+script = ExtResource("1_lfb58")
+_Nopeus = 10.0

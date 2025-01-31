@@ -5,10 +5,10 @@ public partial class Snake : Node2D
 {
 	[Export] float _Nopeus;
 
-	public void Move()
+	public void Move(double delta)
 	{
 		Vector2 _inputDirection = Input.GetVector("left", "right", "up", "down");
-		Position += _inputDirection * _Nopeus;
+		Position += _inputDirection * _Nopeus * (float)delta;
 	}
 	public override void _Input(InputEvent @event)
 	{
@@ -22,10 +22,7 @@ public partial class Snake : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		Move();
+		Move(delta);
 	}
-
-
-
 
 }

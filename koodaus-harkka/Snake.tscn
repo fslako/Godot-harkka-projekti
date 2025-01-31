@@ -7,7 +7,7 @@
 script = ExtResource("1_lfb58")
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(74, 82)
+position = Vector2(75, 82)
 texture = ExtResource("2_23oab")
 script = ExtResource("1_lfb58")
-_Nopeus = 10.0
+_Nopeus = 200.0

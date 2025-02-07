@@ -16,23 +16,51 @@ namespace SnakeGame
 		}
 
 		[Export] private float _speed = 1;
+		[Export] private Grid _grid = null;
+		private Vector2I _currentPosition = new Vector2I(5,5);
 
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
+			if (_grid.GetWorldPosition(_currentPosition, out Vector2 worldPosition))
+			{
+				Position = worldPosition;
+			}
 		}
 
 		// Called every frame. 'delta' is the elapsed time since the previous frame.
 		public override void _Process(double delta)
 		{
 			Direction direction = ReadInput();
-			Move(direction, (float)delta);
+			Move(direction);
+		}
+
+		private void Move(Direction direction)
+		{
+			Vector2I nextPosition = GetNextGridPosition(direction, _currentPosition);
+			if (_grid.GetWorldPosition(nextPosition, out Vector2 worldPosition))
+			{
+				_currentPosition = nextPosition;
+				Position = worldPosition;
+			}
 		}
 
 		private void Move(Direction direction, float delta)
 		{
 			Vector2 directionVector = GetDirectionVector(direction);
 			Translate(directionVector * _speed * delta);
+		}
+
+		private Vector2I GetNextGridPosition(Direction direction, Vector2I currentPosition)
+		{
+			switch (direction)
+			{
+				case Direction.Up: return currentPosition + Vector2I.Up;
+				case Direction.Down: return currentPosition + Vector2I.Down;
+				case Direction.Right: return currentPosition + Vector2I.Right;
+				case Direction.Left: return currentPosition + Vector2I.Left;
+				default: return currentPosition;
+			}
 		}
 
 		private Vector2 GetDirectionVector(Direction direction)
@@ -51,19 +79,19 @@ namespace SnakeGame
 		{
 			Direction direction = Direction.None;
 
-			if (Input.IsActionPressed(Config.MoveUpAction))
+			if (Input.IsActionJustPressed(Config.MoveUpAction))
 			{
 				direction = Direction.Up;
 			}
-			else if (Input.IsActionPressed(Config.MoveDownAction))
+			else if (Input.IsActionJustPressed(Config.MoveDownAction))
 			{
 				direction = Direction.Down;
 			}
-			else if (Input.IsActionPressed(Config.MoveLeftAction))
+			else if (Input.IsActionJustPressed(Config.MoveLeftAction))
 			{
 				direction = Direction.Left;
 			}
-			else if (Input.IsActionPressed(Config.MoveRightAction))
+			else if (Input.IsActionJustPressed(Config.MoveRightAction))
 			{
 				direction = Direction.Right;
 			}

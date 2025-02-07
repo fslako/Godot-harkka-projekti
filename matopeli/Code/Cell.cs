@@ -35,11 +35,5 @@ namespace SnakeGame
 				_gridPosition = newValue;
 			}
 		}
-
-		public Vector2I Position
-		{
-			get {return _position;}
-		}
-
 	}
 }
